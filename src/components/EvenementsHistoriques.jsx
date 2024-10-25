@@ -14,8 +14,8 @@ const EvenementsHistoriques = () => {
           throw new Error('Erreur lors de la récupération des données');
         }
         const result = await response.json();  // Conversion de la réponse en JSON
-        // Limitation à 5 événements maximum pour l'affichage
-        const historicalEvents = result.data.Events.slice(0, 5);
+        // Limitation à 2 événements maximum pour l'affichage
+        const historicalEvents = result.data.Events.slice(0, 2);
         setEvents(historicalEvents);  // Mise à jour des événements dans l'état
       } catch (error) {
         setError(error.message);  // Gestion des erreurs

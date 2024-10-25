@@ -3,6 +3,7 @@ import Blague from "./components/Blague";
 import EvenementsHistoriques from "./components/EvenementsHistoriques";
 import MocktailDuJour from "./components/Mocktails";
 import RecetteDuJour from "./components/Recettes";
+import Editor from "./pages/Editor";
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
       <MocktailDuJour/>
       <p>-----------------------------------------------------------------------</p>
       <RecetteDuJour/>
+      <p>-----------------------------------------------------------------------</p>
+      <Editor />
     </div>
   );
 }
