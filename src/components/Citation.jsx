@@ -29,7 +29,6 @@ const Citation = () => {
 
   return (
     <div>
-      <h2>Citation du jour :</h2>
       <p>{advice}</p>  {/* Affichage de la citation */}
     </div>
   );

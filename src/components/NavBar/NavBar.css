@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
+
+.container2 {
+    background-image: url('./stars.gif');
+    background-repeat: repeat;
+    background-size: auto;
+    width: 100%;
+    height: 100px;
+
+    text-align: center;
+    border-bottom: 5px solid white;
+}
+
+
+.rainbow-text {
+    font-size: 3em;
+    font-weight: bold;
+    font-family: "DynaPuff", system-ui;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    background-size: 400%; 
+    color: transparent;
+    background-clip: text;
+    animation: rainbow 5s linear infinite; 
+    padding-top: 20px;
+}
+
+@keyframes rainbow {
+    0% { background-position: 0% }
+    100% { background-position: 100% }
+}
