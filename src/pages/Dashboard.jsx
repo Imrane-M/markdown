@@ -12,29 +12,28 @@ function Dashboard() {
   const navigate = useNavigate();
 
   // Charger les fichiers depuis le local storage
+  // dans le component
   const loadMarkdowns = () => {
     const files = [];
     for (let i =0; i < localStorage.length; i++) {
       const key = localStorage.key(i)
       // Ignorer les fichiers temporaires
-      if (key !== "currentFileTitle" && key !== "currentFileContent") {
-        files.push({ title: key, content: localStorage.getItem(key) });
+      if (key !== "currentFileID") {
+        files.push(JSON.parse(localStorage.getItem(key)));
       }
     }
     setMarkdowns(files);
   }
-  // Charger un fichier dans l'éditeur
+  // Charge et renvoi le fichier selectionné vers l'éditeur
   const openMarkdown = (file) => {
-    localStorage.setItem("currentFileTitle", file.title); // Sauvegarde temporaire du titre
-    localStorage.setItem("currentFileContent", file.content); // Sauvegarde temporaire du contenu
+    localStorage.setItem("currentFileID", file.id); // Sauvegarde temporaire de l'ID du fichier
     navigate("/editor");
   }
 
   // Suppression du fichier temporaire 
   // en cas de nouveau fichier
   const handleNewMarkdown = () => {
-    localStorage.removeItem("currentFileTitle")
-    localStorage.removeItem("currentFileContent")      
+    localStorage.removeItem("currentFileID")
     navigate("/editor");
   }
 
@@ -50,6 +49,10 @@ function Dashboard() {
       markdowns.map((file, index) => (
         <li key={index} onClick={() => openMarkdown(file)}>
           {file.title}
+          <br />
+          <small>Créé le : {file.createdDate}</small>
+          <br />
+          <small>Dernière modification : {file.modifiedDate}</small>
           </li>
       ))}
     </ul>
