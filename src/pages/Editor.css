@@ -43,3 +43,11 @@
   display: flex;
   gap: 2em;
 }
+
+.formating {
+  padding: .2em .4em;
+}
+
+.formating > button {
+  margin: .2em;
+}

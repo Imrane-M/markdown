@@ -61,6 +61,37 @@ function Editor() {
     URL.revokeObjectURL(url);
   };
 
+  const applyFormat = (formatType) => {
+    const textarea = document.getElementById('textEditor');
+    const { selectionStart, selectionEnd, value } = textarea;
+    const selectedText = value.slice(selectionStart, selectionEnd);
+
+    let formattedText;
+    switch (formatType) {
+      case 'bold':
+        formattedText = `**${selectedText}**`;
+        break;
+      case 'italic':
+        formattedText = `*${selectedText}*`;
+        break;
+      case 'link':
+        formattedText = `[${selectedText}](url)`;
+        break;
+      case 'titre-1':
+        formattedText = `#${selectedText}`;
+        break;
+      case 'titre-2':
+        formattedText = `##${selectedText}`;
+        break;
+      case 'titre-3':
+        formattedText = `###${selectedText}`;
+        break;
+      default:
+        return;
+    }
+    const newText = value.slice(0, selectionStart) + formattedText + value.slice(selectionEnd);
+    setMarkdown(newText);
+  }
   // Chargement du fichier temporaire si disponible
   useEffect(() => {
     const tempFileID = localStorage.getItem("currentFileID") // On reccupère l'ID du markdown séclectionné
@@ -73,9 +104,9 @@ function Editor() {
     setMarkdownID(tempFile.id)
   }, []);
   useEffect(()=> {
-    const autoSave = setInterval(handleSave,2 * 60 * 100) //Sauvegarde toute les 2 minutes.
+    const autoSave = setInterval(handleSave,2 * 60 * 1000) //Sauvegarde toute les 2 minutes.
     return () => clearInterval(autoSave) // Libération de la mémoire une fois le composants démonté.
-  },[markdown, title, handleSave])
+  },[markdown, title])
 
   return (
     <div className="container">
@@ -93,6 +124,15 @@ function Editor() {
           <label htmlFor="import">Upload file</label>
           <input type="file" accept=".md" onChange={handleFileImport} />
         </div>
+      </div>
+
+      <div className='formating'>
+        <button onClick={() => applyFormat('titre-1')}>H1</button>
+        <button onClick={() => applyFormat('titre-2')}>H2</button>
+        <button onClick={() => applyFormat('titre-3')}>H3</button>
+        <button onClick={() => applyFormat('bold')}>Gras</button>
+        <button onClick={() => applyFormat('italic')}>Italique</button>
+        <button onClick={() => applyFormat('link')}>Lien</button>
       </div>
 
       <div className="editor--wrapper">
