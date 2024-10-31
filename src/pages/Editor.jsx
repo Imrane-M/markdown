@@ -72,6 +72,10 @@ function Editor() {
     setMarkdown(tempFile.markdown);
     setMarkdownID(tempFile.id)
   }, []);
+  useEffect(()=> {
+    const autoSave = setInterval(handleSave,2 * 60 * 100) //Sauvegarde toute les 2 minutes.
+    return () => clearInterval(autoSave) // Libération de la mémoire une fois le composants démonté.
+  },[markdown, title, handleSave])
 
   return (
     <div className="container">

@@ -9,6 +9,7 @@ import RecetteDuJour from "../components/Recettes";
 
 function Dashboard() {
   const [markdowns, setMarkdowns] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
   const navigate = useNavigate();
 
   // Charger les fichiers depuis le local storage
@@ -40,13 +41,24 @@ function Dashboard() {
   useEffect(() => {
     loadMarkdowns();
   }, [])
+
+  // Filtre les fichiers en fonction du terme de recherche
+  const filteredMarkdowns = markdowns.filter((file) =>
+    file.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
   return (
     <>
     <h2>My Dashboard</h2>
     <button type="button" onClick={handleNewMarkdown}>New Markdown</button>
+    <input 
+      type='text' 
+      placeholder='Rechercher un markdown...'
+      value={searchTerm}
+      onChange={(e)=>setSearchTerm(e.target.value)}
+      />
     <ul>
-      {markdowns.length === 0 ? "No files here ..." :
-      markdowns.map((file, index) => (
+      {filteredMarkdowns.length === 0 ? "No files here ..." :
+      filteredMarkdowns.map((file, index) => (
         <li key={index} onClick={() => openMarkdown(file)}>
           {file.title}
           <br />
