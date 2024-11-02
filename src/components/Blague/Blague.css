@@ -1,0 +1,49 @@
+/* Blague.css */
+.blague-container {
+    background-color: #fffa86; /* Couleur jaune pâle pour le fond */
+    border: 1px solid #e6e64c; /* Bordure légère */
+    border-radius: 8px; /* Coins arrondis */
+    padding: 20px;
+    max-width: 400px;
+    margin: 30px auto;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Ombre pour un effet 3D */
+    font-family: Arial, sans-serif;
+    transform: rotate(-2deg); /* Légère rotation pour un effet post-it */
+    position: relative;
+  }
+  
+  .blague-container::before {
+    content: '';
+    width: 60px;
+    height: 8px;
+    background-color: #333;
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Simule un ruban adhésif */
+  }
+  
+  .blague-title {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .blague-setup,
+  .blague-punchline {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: #555;
+  }
+  
+  .blague-setup {
+    font-weight: bold;
+  }
+  
+  .blague-punchline {
+    color: #333;
+  }
+  

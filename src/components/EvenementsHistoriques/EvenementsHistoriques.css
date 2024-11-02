@@ -1,0 +1,11 @@
+
+.containers {
+    width: 400px;
+    height: 200px;
+    padding: 25px;
+    background: 
+    linear-gradient(#3f87a6 10%, #ebf8e100 10%), /* Premier dégradé vertical */
+    linear-gradient(to right, #ffffff 10%, #c73030 10% 10.2%, #ffffff 10.5%); /* Deuxième dégradé horizontal */
+    background-size: 100% 25px, 100% 100%;
+    background-repeat: repeat, no-repeat;
+}
