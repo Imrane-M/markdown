@@ -30,8 +30,8 @@ const EvenementsHistoriques = () => {
   if (error) return <p>Erreur : {error}</p>;
 
   return (
-    <div className='containers'>
-      <h2>Événements historiques du jour</h2>
+    <div className='event-containers'>
+      <h4>Événements historiques du jour</h4>
       <ul>
         {events.map((event, index) => (
           <li key={index}>
