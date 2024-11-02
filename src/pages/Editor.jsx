@@ -7,7 +7,8 @@ function Editor() {
   const previewRef = useRef(null);
   const [title, setTitle] = useState('Mon markdown <3')
   const [markdown, setMarkdown] = useState('');
-  // Création d'un nouvel
+  const [markdownID, setMarkdownID] = useState('')
+  // Création d'une instance de fichier markdown avec prévisualisation
   const showdown = new Showdown.Converter();
   // Gestion de la prévisualisation
   const handleChangeMarkdown = (e) => {
@@ -18,14 +19,24 @@ function Editor() {
   }
   // Gestion de la modidfication du titre
   const handleChangeTitle = () => {
-    const newTitle = prompt('Entrez le titre du document', '');
+    const newTitle = prompt('Entrez le titre du document', title);
     if (newTitle === '') return;
     newTitle !== null && setTitle(newTitle);
   }
   // Gestion de la sauvegarde dans le local storage
   const handleSave = () => {
     if (!title) alert("Veuillez donner un titre à votre fichier.");
-    localStorage.setItem(title, markdown);
+    const existingFile = JSON.parse(localStorage.getItem(markdownID));
+    const now = new Date().toLocaleString(); // Date actuelle sous forme lisible
+    // Structure de données avec date de création et de dernière modification
+    const fileData = {
+      id: markdownID ?? crypto.randomUUID(),
+      title,
+      markdown,
+      createdDate: existingFile ? existingFile.createdDate : now, // Date de création uniquement si c'est une première sauvegarde
+      modifiedDate: now // Met à jour à chaque sauvegarde
+    };
+    localStorage.setItem(fileData.id, JSON.stringify(fileData));
     alert("Fichier sauvegardé avec succès !");
   }
   // Gestion des imports d'un fichier markdown
@@ -52,10 +63,14 @@ function Editor() {
 
   // Chargement du fichier temporaire si disponible
   useEffect(() => {
-    const currentMarkdownTitle = localStorage.getItem("currentFileTitle") || 'Mon markdown';
-    const currentMarkdownContent = localStorage.getItem("currentFileContent") || '';
-    setTitle(currentMarkdownTitle);
-    setMarkdown(currentMarkdownContent);
+    const tempFileID = localStorage.getItem("currentFileID") // On reccupère l'ID du markdown séclectionné
+    // On charge le contenu dans les states
+    const tempFile = JSON.parse(
+      localStorage.getItem(tempFileID)) 
+      ?? {title: 'unknown_markdown', markdown:''};
+    setTitle(tempFile.title);
+    setMarkdown(tempFile.markdown);
+    setMarkdownID(tempFile.id)
   }, []);
 
   return (
@@ -78,11 +93,11 @@ function Editor() {
 
       <div className="editor--wrapper">
         <textarea name="editor" id="textEditor" 
-        className="editor" onChange={handleChangeMarkdown} 
+        className="editor" onInput={handleChangeMarkdown} 
         spellCheck={false} value={markdown}
         placeholder="Laissez votre empreinte...">
         </textarea>
-        <div className="preview"ref={previewRef}></div>
+        <div className="preview" ref={previewRef}></div>
       </div>
     </div>
 )}
