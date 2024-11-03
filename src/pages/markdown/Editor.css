@@ -131,3 +131,20 @@
 .file-title, .file-created-date, .file-modified-date {
   color: #333;
 }
+
+
+
+.back-button {
+  background-color: #e0e0e0;
+  border: 1px solid #ccc;
+  padding: 4px 8px;
+  cursor: pointer;
+  box-shadow: 2px 2px 4px #888;
+  border-radius: 3px;
+  position: absolute;
+  margin: 20px;
+}
+
+.back-button:hover {
+  background-color: #d0d0d0;
+}
