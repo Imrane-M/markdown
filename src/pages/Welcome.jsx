@@ -6,6 +6,7 @@ import RecetteDuJour from "../components/Recette/Recettes";
 import NavBar from "../components/NavBar/NavBar";
 import TableauAvecImage from "../components/Tableau/Tableau";
 import Dashboard from "../pages/Dashboard";
+import Horloge from "../components/Horloge/Horloge";
 
 import "./Welcome.css";
 
@@ -23,6 +24,7 @@ function Welcome() {
             <Dashboard />
           </div>
           <div className="flex-composant2">
+            <Horloge/>
             <MocktailDuJour />
             <RecetteDuJour />
           </div>

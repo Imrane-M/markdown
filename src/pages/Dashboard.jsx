@@ -7,15 +7,13 @@ function Dashboard() {
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
 
-  // Charger les fichiers depuis le local storage
   const loadMarkdowns = () => {
     const files = [];
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
-      // Ignorer les fichiers temporaires
       if (key !== "currentFileID") {
         const file = JSON.parse(localStorage.getItem(key));
-        if (file) { // Vérifiez si le fichier existe avant de l'ajouter
+        if (file) {
           files.push(file);
         }
       }
@@ -23,13 +21,11 @@ function Dashboard() {
     setMarkdowns(files);
   };
 
-  // Charge et renvoie le fichier sélectionné vers l'éditeur
   const openMarkdown = (file) => {
-    localStorage.setItem("currentFileID", file.id); // Sauvegarde temporaire de l'ID du fichier
+    localStorage.setItem("currentFileID", file.id);
     navigate("/editor");
   };
 
-  // Suppression du fichier temporaire en cas de nouveau fichier
   const handleNewMarkdown = () => {
     localStorage.removeItem("currentFileID");
     navigate("/editor");
@@ -39,9 +35,8 @@ function Dashboard() {
     loadMarkdowns();
   }, []);
 
-  // Filtre les fichiers en fonction du terme de recherche
   const filteredMarkdowns = markdowns.filter((file) =>
-    file.title && file.title.toLowerCase().includes(searchTerm.toLowerCase()) // Vérifiez si title existe
+    file.title && file.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
