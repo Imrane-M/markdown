@@ -1,4 +1,4 @@
-/* Conteneur principal */
+
 .editor-container {
   font-family: Arial, sans-serif;
   background-color: #f0f8ff;
@@ -12,7 +12,7 @@
   border-radius: 8px;
 }
 
-/* Titre */
+
 .header--wrapper h2 {
   font-size: 2em;
   color: #0066cc;
@@ -21,7 +21,7 @@
   margin-bottom: 10px;
 }
 
-/* Titre du document */
+
 .title--wrapper {
   display: flex;
   align-items: center;
@@ -46,7 +46,7 @@
   background-color: #d0d0d0;
 }
 
-/* Menu d'options */
+
 .menu {
   display: flex;
   gap: 10px;
@@ -74,7 +74,7 @@
   display: none;
 }
 
-/* Boutons de formatage */
+
 .formating {
   display: flex;
   gap: 5px;
@@ -97,7 +97,7 @@
   background-color: #a0b4ce;
 }
 
-/* Zone de texte de l'éditeur */
+
 .editor--wrapper {
   display: flex;
   gap: 20px;
@@ -116,7 +116,7 @@
   resize: none;
 }
 
-/* Prévisualisation */
+
 .preview {
   width: 50%;
   height: 500px;
@@ -127,7 +127,7 @@
   box-shadow: inset 2px 2px 4px #ccc;
 }
 
-/* Style de la barre de titre */
+
 .file-title, .file-created-date, .file-modified-date {
   color: #333;
 }
