@@ -13,20 +13,20 @@ function Welcome() {
   return (
       <div className="container">
         <NavBar />
-        <main className="main">
-          <section className="flex-composant">
+        <div className="main">
+          <div className="flex-composant">
             <TableauAvecImage/>
             <Blague/>
             <EvenementsHistoriques/>
-          </section>
-          <section>
+          </div>
+          <div>
             <Dashboard />
-          </section>
-          <section className="flex-composant2">
+          </div>
+          <div className="flex-composant2">
             <MocktailDuJour />
             <RecetteDuJour />
-          </section>
-        </main>
+          </div>
+        </div>
       </div>
   );
 }

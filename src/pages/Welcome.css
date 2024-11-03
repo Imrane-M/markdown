@@ -10,12 +10,14 @@ h2{
 
 .flex-composant{
   display: flex;
+  width: 450px;
   margin-top: 50px;
   flex-direction: column;
 }
 
 .flex-composant2{
   display: flex;
+  width: 450px;
   margin-top: 50px;
   flex-direction: column;
 }

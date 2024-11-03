@@ -6,19 +6,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  
-  /* Titre principal */
-  .dashboard-title {
+    width: 500px;
+    height: 100vh;
+}
+
+/* Titre principal */
+.dashboard-title {
     font-size: 2em;
     color: #0066cc;
+    padding-top: 50px;
     text-shadow: 1px 1px #999;
     margin-bottom: 1rem;
     text-align: center;
-  }
-  
-  /* Bouton de création de nouveau fichier */
-  .new-markdown-button {
+}
+
+/* Bouton de création de nouveau fichier */
+.new-markdown-button {
     background: linear-gradient(to bottom, #f7f7f7 0%, #e0e0e0 100%);
     border: 2px solid #aaa;
     padding: 10px 20px;
@@ -29,14 +32,14 @@
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     text-transform: uppercase;
     margin-bottom: 1rem;
-  }
-  
-  .new-markdown-button:hover {
+}
+
+.new-markdown-button:hover {
     background: linear-gradient(to bottom, #e0e0e0 0%, #c0c0c0 100%);
-  }
-  
-  /* Style de la barre de recherche */
-  .search-input {
+}
+
+/* Style de la barre de recherche */
+.search-input {
     padding: 8px;
     width: 80%;
     border: 2px solid #ccc;
@@ -44,52 +47,53 @@
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
     margin-bottom: 1rem;
     font-size: 1em;
-  }
-  
-  /* Liste des fichiers markdown */
-  .markdown-list {
+}
+
+/* Liste des fichiers markdown - organisation en grille */
+.markdown-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Deux colonnes de même largeur */
+    gap: 1rem; /* Espace entre les éléments */
     list-style-type: none;
     padding: 0;
     width: 80%;
     max-width: 500px;
     border-top: 2px solid #0066cc;
     margin: 0 auto;
-  }
-  
-  /* Élément de la liste */
-  .markdown-item {
+}
+
+/* Élément de la liste */
+.markdown-item {
     background-color: #e6e6fa;
     padding: 10px;
     border: 1px solid #aaa;
     border-radius: 4px;
-    margin-bottom: 0.5rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .markdown-item:hover {
+}
+
+.markdown-item:hover {
     background-color: #dcdcdc;
     border-color: #666;
-  }
-  
-  /* Texte des fichiers */
-  .file-title {
+}
+
+/* Texte des fichiers */
+.file-title {
     font-weight: bold;
     color: #333;
-  }
-  
-  .file-created-date,
-  .file-modified-date {
+}
+
+.file-created-date,
+.file-modified-date {
     display: block;
     color: #666;
     font-size: 0.8em;
     margin-top: 5px;
-  }
-  
-  /* Message quand il n'y a pas de fichiers */
-  .no-files-message {
+}
+
+/* Message quand il n'y a pas de fichiers */
+.no-files-message {
     color: #666;
     font-style: italic;
     text-align: center;
-  }
-  
+}

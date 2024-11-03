@@ -1,9 +1,9 @@
 .event-containers {
-    width: 500px;
-    height: 320px;
+    width: 375px; /* 25% plus petit que 500px */
+    height: 240px; /* 25% plus petit que 320px */
     margin: 25px;
     background: url('./11469009.png');
-    background-size: 500px 320px;
+    background-size: 375px 240px; /* Redimensionne l'image de fond */
     background-repeat: no-repeat; /* Correction pour éviter les répétitions non désirées */
     text-align: center; /* Centre le texte à l'intérieur */
     display: flex; /* Active le mode flex */
@@ -13,23 +13,22 @@
 }
 
 .event-containers h4 {
-    padding-top: 40px; /* Ajustez cet espacement si nécessaire */
-    margin-bottom: 20px; /* Ajoute un espace sous le titre pour plus d'air */
+    padding-top: 30px; /* Ajuste l'espacement si nécessaire */
+    margin-bottom: 15px; /* Réduit l'espacement pour correspondre à la taille */
 }
 
 .event-containers ul { 
     list-style-type: none; /* Retire les puces de la liste si nécessaire */
     padding: 0; /* Enlève le padding par défaut */
-    display: flex; /* Utiliser flex pour centrer les éléments */
+    display: flex; /* Utilise flex pour centrer les éléments */
     flex-direction: column; /* Aligne les éléments verticalement */
     align-items: center; /* Centre les éléments horizontalement */
-
 }
 
 .event-containers li {
     width: auto; /* Ajuste la largeur pour s'adapter au contenu */
-    margin-bottom: 10px; /* Espacement entre les éléments de la liste */
+    margin-bottom: 8px; /* Espacement ajusté entre les éléments de la liste */
     text-align: center; /* Centre le texte à l'intérieur des <li> */
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
